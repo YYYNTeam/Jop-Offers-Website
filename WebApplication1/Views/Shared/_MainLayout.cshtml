@@ -25,6 +25,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
+                    <!--logo-->
                     <a href="#" class="navbar-brand">
                         <img src="~/images/jobs1-removebg-preview.png" class=" logo-size" />
                     </a>
@@ -69,6 +70,7 @@
             </div>
         </nav>
         <!--End Navbar -->
+
         <!--Start Body-->
         <div class="container">
             <div class="row">
@@ -76,8 +78,10 @@
             </div>
         </div>
         <!--End Body -->
+
+
         <!--Start Fotter-->
-        <footer class="navbar navbar-fixed-bottom myfooter">
+        <footer class="myfooter" >
             <div class="container">
                 <div class="row">
                     <!--use class row for bootstrap grid '12'-->
@@ -86,7 +90,7 @@
                             <i class="glyphicon glyphicon-question-sign"></i>
                             من نحن
                         </h3>
-                        <p>
+                        <p class="footerP">
                             السلام عليكم ورحمة الله وبركاته تسعدنا زيارتكم لموقعنا ونتمنى ان ينال اعجابكم ، موقعنا هو موقع توظيف لمساعدة الشباب والأناس الجادين في البحث عن وظيفة في مختلف التخصصات والبلدان ونتمنى ان ينفعنا الله واياكم به
                         </p>
                     </div>
@@ -126,5 +130,8 @@
     <!--End Fotter-->
     <script src="~/Scripts/jquery.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+
+    @RenderSection("scripts",required:false);
+
 </body>
 </html>

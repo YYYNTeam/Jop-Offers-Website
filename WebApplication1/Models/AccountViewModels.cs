@@ -69,6 +69,10 @@ namespace WebApplication2.Models
         public string UserName { get; set; }
 
         [Required]
+        [Display(Name ="نوع الحساب")]
+        public string UserType { get; set; }
+
+        [Required]
         [EmailAddress]
         [Display(Name = "البريد الالكتروني")]
         public string Email { get; set; }

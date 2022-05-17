@@ -7,9 +7,14 @@
     font-family: myFont2;
     src: url('font/HelveticaNeueW23-Reg.ttf')
 }
+@font-face {
+    font-family: myFont3;
+    src: url('font/FontAwesome.otf')
+}
 
 body{
     padding-top:120px;
+    font-family:myFont3;
 }
 
 /*navbar style*/
@@ -31,14 +36,15 @@ body{
     padding-top: 10px;
 }
 
+
 /*footer style*/
-.myfooter{
-    background-color:cornflowerblue;
-    padding-top:10px;
-    font-family:myFont;
-    text-align:justify;
+.myfooter {
+    background-color: cornflowerblue;
+    padding-top: 10px;
+    font-family: myFont;
+    text-align: justify;
 }
-.myfooter a,p{
+.myfooter  a,p.footerP{
     color:azure;
 }
 
@@ -62,4 +68,10 @@ body{
     border-radius: 50%;
     margin-top: -12px;
     background-color: white;
+}
+
+
+/*shared layout style*/
+.lead{
+    color:black;
 }

@@ -7,18 +7,20 @@
 
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
+    /*header*/
     @Html.AntiForgeryToken()
     <h4>إنشاء حساب جديد.</h4>
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
     
+    /*username section*/
     <div class="form-group">
         @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
             @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
         </div>
     </div>
-
+    /*email section*/
     <div class="form-group">
         @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
@@ -26,6 +28,15 @@
         </div>
     </div>
 
+    //combobox UserType section
+    <div class="form-group">
+        @Html.LabelFor(m => m.UserType, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownList("UserType",null,new { @class="form-control"})
+        </div>
+    </div>
+
+    /*password section*/
     <div class="form-group">
         @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
