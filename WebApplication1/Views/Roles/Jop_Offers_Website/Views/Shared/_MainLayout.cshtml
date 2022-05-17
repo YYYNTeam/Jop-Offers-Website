@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial scale=1" />
+
+    <title>@ViewBag.Title</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Style.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div>
+        <!--Start Navbar -->
+        <!--navbar toogle-->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#navbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!--logo-->
+                    <a href="#" class="navbar-brand">
+                        <img src="~/images/jobs1-removebg-preview.png" class=" logo-size" />
+                    </a>
+                </div>
+
+                <!--العناصر المكونة لل navbar-->
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class=" nav navbar-nav">
+                        <!--تحتوي على العناصر-->
+                        <!--عنصر-->
+                        <li>
+                            <a href=" #">
+                                <i class=" glyphicon glyphicon-home"></i>
+                                الرئيسية
+                            </a>
+                        </li>
+                        <li>
+                            <a href=" #">
+                                <i class=" glyphicon glyphicon-folder-open"></i>
+                                أصناف العروض
+                            </a>
+                        </li>
+                        <li>
+                            <a href=" #">
+                                <i class=" 	glyphicon glyphicon-info-sign"></i>
+                                حول الموقع
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href=" #">
+                                <i class=" 	glyphicon glyphicon-earphone"></i>
+                                اتصل بنا
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!--Login & Regiter-->
+                    @Html.Partial("_Login")
+                </div>
+
+            </div>
+        </nav>
+        <!--End Navbar -->
+
+        <!--Start Body-->
+        <div class="container">
+            <div class="row">
+                @RenderBody()
+            </div>
+        </div>
+        <!--End Body -->
+
+
+        <!--Start Fotter-->
+        <footer class="myfooter" >
+            <div class="container">
+                <div class="row">
+                    <!--use class row for bootstrap grid '12'-->
+                    <div class="col-md-4">
+                        <h3>
+                            <i class="glyphicon glyphicon-question-sign"></i>
+                            من نحن
+                        </h3>
+                        <p class="footerP">
+                            السلام عليكم ورحمة الله وبركاته تسعدنا زيارتكم لموقعنا ونتمنى ان ينال اعجابكم ، موقعنا هو موقع توظيف لمساعدة الشباب والأناس الجادين في البحث عن وظيفة في مختلف التخصصات والبلدان ونتمنى ان ينفعنا الله واياكم به
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>
+                            <i class="glyphicon glyphicon-globe"></i>
+                            روابط هامة
+                        </h3>
+                        <ul>
+                            <li><a href="#">وظائف للقطاع العام</a></li>
+                            <li><a href="#">وظائف للقطاع الخاص</a></li>
+                            <li><a href="#">وظائف خارج البلاد</a></li>
+                            <li><a href="#">وظائف متنوعة</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>
+                            <i class=" 	glyphicon glyphicon-earphone"></i>
+                            تواصل معنا
+                        </h3>
+                        <ul>
+                            <li><a href="#">صفحتنا على الفيسبوك</a></li>
+                            <li><a href="#">تابعنا على تويتر</a></li>
+                            <li><a href="#">شاهدنا على اليوتيوب</a></li>
+                            <li><a href="#">اترك لنا رسالة</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <div class="subfooter">
+                <span>جميع الحقوق محفوظة 2022</span>
+            </div>
+        </footer>
+    </div>
+
+    <!--End Fotter-->
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    @RenderSection("scripts",required:false);
+
+</body>
+</html>

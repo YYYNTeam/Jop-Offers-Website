@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -8,6 +9,7 @@ using WebApplication2.Models;
 
 namespace Jop_Offers_Website.Controllers
 {
+    [Authorize(Roles ="Admins")]
     public class RolesController : Controller
     {
         ApplicationDbContext db = new ApplicationDbContext();
@@ -51,46 +53,51 @@ namespace Jop_Offers_Website.Controllers
         }
 
         // GET: Roles/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(string id)
         {
+            var role = db.Roles.Find(id);
+            if (role == null)
+                return HttpNotFound();
             return View();
         }
 
         // POST: Roles/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit([Bind(Include = "Id,Name")]IdentityRole role)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
+                db.Entry(role).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(role);
         }
 
         // GET: Roles/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(string id)
         {
+            var role = db.Roles.Find(id);
+            if (role == null)
+                return HttpNotFound();
             return View();
         }
 
         // POST: Roles/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(IdentityRole role)
         {
             try
             {
                 // TODO: Add delete logic here
-
+                var myRole = db.Roles.Find(role.Id);
+                db.Roles.Remove(myRole);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View(role);;
             }
         }
     }

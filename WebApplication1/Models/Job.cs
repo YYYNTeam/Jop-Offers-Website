@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using WebApplication2.Models;
 
 // class for jobs in DB -it has one to many relationship between it and Category-
 //Category have more than job & one job belong to one category
@@ -25,7 +26,9 @@ namespace Jop_Offers_Website.Models
         //Forign key for one to many relationship
         [Display(Name ="نوع الوظيفة")]
         public int CategoryId { get; set; }
-
+        // the add part is the string UserID and Application User
+        public string UserID { get; set; }
         public virtual Category Category { get; set; }
+        public virtual ApplicationUser User { get; set; }
     }
 }

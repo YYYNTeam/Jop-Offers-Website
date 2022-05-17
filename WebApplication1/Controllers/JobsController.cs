@@ -9,9 +9,11 @@ using System.Web.Mvc;
 using Jop_Offers_Website.Models;
 using WebApplication2.Models;
 using System.IO;
+using Microsoft.AspNet.Identity;
 
 namespace Jop_Offers_Website.Controllers
 {
+    [Authorize] // Authorize every one to access it
     public class JobsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -57,7 +59,8 @@ namespace Jop_Offers_Website.Controllers
                 string path = Path.Combine(Server.MapPath("~/Uploads"), upload.FileName); //for upload jobs images
                 upload.SaveAs(path); //to store image on server
                 job.JobImg = upload.FileName; //store image on database
-
+                // here we will add the User
+                job.UserID = User.Identity.GetUserId();
                 db.Jobs.Add(job);
                 db.SaveChanges();
                 return RedirectToAction("Index");

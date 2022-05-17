@@ -1,0 +1,52 @@
+﻿@model Jop_Offers_Website.Models.Job
+
+@{
+    ViewBag.Title = "تفاصيل الوظيفة";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>تفاصيل الوظيفة</h2>
+
+<div>
+    <h4>الوظيفة</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.CategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.CategoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobContent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobContent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobImg)
+        </dt>
+
+        <dd>
+            <img src="~/Uploads/@Html.DisplayFor(model => model.JobImg)" 
+                 class="thumbnail" style="width:48px; height:48px;" />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("تعديل", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("عودة الى القائمة", "Index")
+</p>

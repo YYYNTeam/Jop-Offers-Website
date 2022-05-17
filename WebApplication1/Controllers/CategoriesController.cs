@@ -11,11 +11,15 @@ using WebApplication2.Models;
 
 namespace Jop_Offers_Website.Controllers
 {
+    [Authorize(Roles = "Adminstrator")] // must login befor accessing the CategoriesController
+    // [Authorize(Roles ="Admins")] // allow Admins type peoble
+    // [Authorize(Users ="YYYN")] // allow just YYYN
     public class CategoriesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Categories
+        [AllowAnonymous] // allow access to the Index without autourization
         public ActionResult Index()
         {
             return View(db.Categories.ToList());
