@@ -6,6 +6,7 @@
 }
 
 <h2>إنشاء وظيفة</h2>
+<script src="~/Scripts/ckeditor/ckeditor.js"></script>
 
 <!-- when press creat => execute Creat Function that is in Jobs & send type to server is post   -->
 @using (Html.BeginForm("Create", "Jobs", FormMethod.Post, new { enctype="multipart/form-data"} ))
@@ -27,7 +28,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.JobContent, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.JobContent, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.JobContent, new { htmlAttributes = new { @class = "form-control", @id="JobContent" } })
                 @Html.ValidationMessageFor(model => model.JobContent, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -59,3 +60,7 @@
 <div>
     @Html.ActionLink("العودة الى القائمة", "Index")
 </div>
+
+<script>
+    CKEDITOR.replace("JobContent");
+</script>

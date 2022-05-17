@@ -4,31 +4,33 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
+<div class="jumbotron alert alert-info">
     <h1>مرحباً بك</h1>
     <p class="lead">الموقع يتيح لك نشر الوظائف اذا كنت صاحب عمل، او البحث عن وظيفة تناسبك.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">المزيد من التفاصيل &raquo;</a></p>
+   
 </div>
 
 <!--loop for jops categories to put it into layout-->
 @foreach (var item in Model)
 {
-<div class="panel panel-default" style="padding:15px;">
-    <h1 class="panel-heading">@Html.DisplayFor(modelItem => item.CategoryName)</h1> <!--display category name-->
-    <h5>@Html.DisplayFor(modelItem => item.CategoryDescription)</h5> <!--display category description-->
-    <div class="row">
-        <!--to add all jobs in category -item- -->
-        @foreach (var subItem in item.Jobs)
-        {
+    <div class="panel panel-info">
+        <div class="panel-heading"><h1>@Html.DisplayFor(modelItem => item.CategoryName)</h1></div> <!--display category name-->
+        
+        <div class="row panel-body">
+            <h5>@Html.DisplayFor(modelItem => item.CategoryDescription)</h5> <!--display category description-->
 
-        <div class="col-md-3 thumbnail" style="margin-left:20px;margin-bottom:30px; height:380px;">
-            <img src="~/Uploads/@subItem.JobImg" />
-            <h3>@Html.DisplayFor(modelItem => subItem.JobTitle)</h3>
-            <h5>@Html.DisplayFor(modelItem => subItem.JobContent)</h5>
-            @Html.ActionLink("التفاصيل", "Details", new { JobId = subItem.Id }, new { @class="btn btn-primary"}) <!--don't ask I don't know-->
+            <!--to add all jobs in category -item- -->
+            @foreach (var subItem in item.Jobs)
+            {
+
+                <div class="col-md-3 thumbnail" style="margin-left:20px;margin-bottom:30px; min-height:380px;">
+                    <img src="~/Uploads/@subItem.JobImg" />
+                    <h3>@Html.DisplayFor(modelItem => subItem.JobTitle)</h3>
+                    <h5>@Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(modelItem => subItem.JobContent).ToString()))</h5>
+                    @Html.ActionLink("التفاصيل", "Details", new { JobId = subItem.Id }, new { @class = "btn btn-primary" }) <!--don't ask I don't know-->
+                </div>
+
+            }
         </div>
-
-        }
     </div>
-</div>
 }

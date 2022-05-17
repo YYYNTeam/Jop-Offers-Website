@@ -9,7 +9,7 @@ using WebApplication2.Models;
 
 namespace Jop_Offers_Website.Controllers
 {
-    [Authorize(Roles ="Admins")]
+    [Authorize(Roles ="Adminstrator")]
     public class RolesController : Controller
     {
         ApplicationDbContext db = new ApplicationDbContext();

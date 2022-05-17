@@ -41,6 +41,7 @@ namespace Jop_Offers_Website.Controllers
         }
 
         // GET: Jobs/Create
+        [Authorize(Roles = "Adminstrator, الناشرون")]
         public ActionResult Create()
         {
             ViewBag.CategoryId = new SelectList(db.Categories, "Id", "CategoryName");
@@ -52,6 +53,7 @@ namespace Jop_Offers_Website.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Adminstrator, الناشرون")]
         public ActionResult Create(Job job, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
@@ -59,7 +61,6 @@ namespace Jop_Offers_Website.Controllers
                 string path = Path.Combine(Server.MapPath("~/Uploads"), upload.FileName); //for upload jobs images
                 upload.SaveAs(path); //to store image on server
                 job.JobImg = upload.FileName; //store image on database
-                // here we will add the User
                 job.UserID = User.Identity.GetUserId();
                 db.Jobs.Add(job);
                 db.SaveChanges();
