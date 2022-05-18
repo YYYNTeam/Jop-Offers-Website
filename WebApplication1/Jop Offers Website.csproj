@@ -148,8 +148,12 @@
     <Content Include="Content\Style.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="images\Design.png" />
+    <Content Include="images\Engineer.png" />
     <Content Include="images\jobs1-removebg-preview.png" />
     <Content Include="images\Jobs2-removebg-preview.png" />
+    <Content Include="images\Programmer.jpeg" />
+    <Content Include="images\Teacher.jpg" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery.js" />
     <Content Include="Web.config" />

@@ -115,6 +115,7 @@ body {
     transition: width 0.4s ease-in-out;
     margin-top: 8px;
     margin-left: 28px;
+    color: black;
 }
 
     #searchName:focus {
