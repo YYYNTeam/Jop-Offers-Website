@@ -48,6 +48,7 @@ namespace Jop_Offers_Website.Controllers
             return View();
         }
 
+
         // POST: Jobs/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
