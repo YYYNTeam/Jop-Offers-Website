@@ -20,14 +20,14 @@
     @Html.HiddenFor(model => model.UserId)
 
     <div class="form-group">
-        @Html.LabelFor(model => model.JobId, "اسم الوظيفة", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.JobId, "Job title", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Model.job.JobTitle
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.UserId, "اسم المستخدم", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.UserId, "User Name", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Model.user.UserName
         </div>
@@ -52,7 +52,7 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="حفظ التعديلات" class="btn btn-default" />
+            <input type="submit" value="Save changes" class="btn btn-default" />
         </div>
     </div>
 </div>

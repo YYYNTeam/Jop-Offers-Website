@@ -19,7 +19,7 @@ namespace Jop_Offers_Website.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Categories
-        [AllowAnonymous] // allow access to the Index without autourization
+        [AllowAnonymous] 
         public ActionResult Index()
         {
             return View(db.Categories.ToList());
@@ -47,8 +47,6 @@ namespace Jop_Offers_Website.Controllers
         }
 
         // POST: Categories/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,CategoryName,CategoryDescription")] Category category)
@@ -79,8 +77,6 @@ namespace Jop_Offers_Website.Controllers
         }
 
         // POST: Categories/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,CategoryName,CategoryDescription")] Category category)

@@ -6,7 +6,6 @@ using System.Linq;
 using System.Web;
 using WebApplication2.Models;
 
-// this is the third table 
 namespace something.Models
 {
     public class ApplyForJob
@@ -20,7 +19,6 @@ namespace something.Models
         [ForeignKey("AspNetUsers")]
         public string UserName { get; set; }
 
-        // how to deal with the ralation ship in the entity relation ship
         public virtual Job job { get; set; }
         public virtual ApplicationUser user { get; set; }
 

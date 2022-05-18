@@ -12,7 +12,7 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            اسم الوظيفة
+            Job title
         </dt>
 
         <dd>
@@ -20,7 +20,7 @@
         </dd>
 
         <dt>
-            نص الرساله
+            Message
         </dt>
 
         <dd>
@@ -28,7 +28,7 @@
         </dd>
 
         <dt>
-            تاريخ الارسال
+            Sending date
         </dt>
 
         <dd>
@@ -38,6 +38,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("تعديل", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("العودة الي قائمة الوظائف", "GetJobByUser")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to jobs list", "GetJobByUser")
 </p>

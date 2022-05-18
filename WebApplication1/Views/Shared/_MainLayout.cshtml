@@ -8,8 +8,8 @@
 
     <title>@ViewBag.Title</title>
 
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    <!--<link href="~/Content/bootstrap.css" rel="stylesheet" />-->
+    <!--<link href="~/Content/bootstrap.min.css" rel="stylesheet" />-->
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/Style.css" rel="stylesheet" />
 </head>
 <body>
@@ -26,49 +26,44 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <!--logo-->
                     <a href="~/Home" class="navbar-brand">
-                        <img src="~/images/jobs1-removebg-preview.png" class=" logo-size" />
+                        Freelancer
                     </a>
                 </div>
 
-                <!--العناصر المكونة لل navbar-->
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class=" nav navbar-nav">
-                        <!--تحتوي على العناصر-->
-                        <!--عنصر-->
                         <li>
                             <a href="~/Home">
                                 <i class=" glyphicon glyphicon-home"></i>
-                                الرئيسية
+                                Home
                             </a>
                         </li>
 
                         <li>
                             <a href="~/Home/About">
                                 <i class=" 	glyphicon glyphicon-info-sign"></i>
-                                حول الموقع
+                                About Us
                             </a>
                         </li>
 
                         <li>
                             <a href="~/Home/Contact">
                                 <i class=" 	glyphicon glyphicon-earphone"></i>
-                                اتصل بنا
+                                Contact Us
                             </a>
                         </li>
 
                         <li>
                             @using (Html.BeginForm("Search", "Home", FormMethod.Post))
                             {
-                                <input type="text" name="searchName" id="searchName" placeholder="ابحث هنا.." />
-
+                                <input type="text" name="searchName" id="searchName" placeholder="Search" />
                             }
+
 
                         </li>
                     </ul>
 
-                    <!--Login & Regiter-->
                     @Html.Partial("_Login")
                 </div>
 
@@ -85,54 +80,53 @@
         <!--End Body -->
 
 
-        <!--Start Fotter-->
-        <footer class="myfooter" >
+        <!--Start Footer-->
+        <footer class="myfooter">
             <div class="container">
                 <div class="row">
-                    <!--use class row for bootstrap grid '12'-->
                     <div class="col-md-4">
                         <h3>
                             <i class="glyphicon glyphicon-question-sign"></i>
-                            من نحن
+                            About Us
                         </h3>
                         <p class="footerP">
-                            السلام عليكم ورحمة الله وبركاته تسعدنا زيارتكم لموقعنا ونتمنى ان ينال اعجابكم ، موقعنا هو موقع توظيف لمساعدة الشباب والأناس الجادين في البحث عن وظيفة في مختلف التخصصات والبلدان ونتمنى ان ينفعنا الله واياكم به
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                         </p>
                     </div>
                     <div class="col-md-4">
                         <h3>
                             <i class="glyphicon glyphicon-globe"></i>
-                            روابط هامة
+                            Important Links
                         </h3>
                         <ul>
-                            <li><a href="#">وظائف للقطاع العام</a></li>
-                            <li><a href="#">وظائف للقطاع الخاص</a></li>
-                            <li><a href="#">وظائف خارج البلاد</a></li>
-                            <li><a href="#">وظائف متنوعة</a></li>
+                            <li><a href="#">Public sector jobs</a></li>
+                            <li><a href="#">Private sector jobs</a></li>
+                            <li><a href="#">Jobs outside the country</a></li>
+                            <li><a href="#">Various Jobs</a></li>
                         </ul>
                     </div>
                     <div class="col-md-4">
                         <h3>
                             <i class=" 	glyphicon glyphicon-earphone"></i>
-                            تواصل معنا
+                            Contact us
                         </h3>
                         <ul>
-                            <li><a href="#">صفحتنا على الفيسبوك</a></li>
-                            <li><a href="#">تابعنا على تويتر</a></li>
-                            <li><a href="#">شاهدنا على اليوتيوب</a></li>
-                            <li><a href="#">اترك لنا رسالة</a></li>
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">YouTube</a></li>
+                            <li><a href="#">Leave Message</a></li>
                         </ul>
                     </div>
                 </div>
 
             </div>
             <div class="subfooter">
-                <span>جميع الحقوق محفوظة 2022</span>
+                <span>Copyright © 2022 Freelancer</span>
             </div>
         </footer>
     </div>
 
-    <!--End Fotter-->
+    <!--End Footer-->
     <script src="~/Scripts/jquery.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
 

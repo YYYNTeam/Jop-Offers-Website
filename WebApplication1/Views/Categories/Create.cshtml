@@ -1,18 +1,18 @@
 ﻿@model Jop_Offers_Website.Models.Category
 
 @{
-    ViewBag.Title = "إنشاء";
+    ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-<h2>إنشاء</h2>
+<h2>Create</h2>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>تفاصيل الصنف</h4>
+        <h4>Category details</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -33,12 +33,12 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="إنشاء" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("العودة الى القائمة", "Index")
+    @Html.ActionLink("Back to list", "Index")
 </div>

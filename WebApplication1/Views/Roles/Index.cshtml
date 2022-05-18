@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>
 
 <p>
-    @Html.ActionLink("اضافة قاعدة جديدة", "Create")
+    @Html.ActionLink("Add a new role", "Create")
 </p>
 <table class="table">
     <tr>
@@ -17,9 +17,9 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.ActionLink("تعديل", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("تفاصيل", "Details", new { id=item.Id }) |
-            @Html.ActionLink("حذف", "Delete", new { id=item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
     </tr>
 }

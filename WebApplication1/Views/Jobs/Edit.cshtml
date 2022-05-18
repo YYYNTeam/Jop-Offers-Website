@@ -1,11 +1,11 @@
 ﻿@model Jop_Offers_Website.Models.Job
 
 @{
-    ViewBag.Title = "تعديل الوظيفة";
+    ViewBag.Title = "Edit job";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-<h2>تعديل الوظيفة</h2>
+<h2>Edit job</h2>
 
 @using (Html.BeginForm("Edit", "Jobs", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
@@ -17,11 +17,11 @@
             <span id="view-err"></span>
         </div>
 
-        <h4>الوظيفة</h4>
+        <h4>job</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
-        @Html.HiddenFor(model => model.JobImg) <!--عشان مجبرش المستخدم في حالة التعديل انه يغير الصورة كل مرة-->
+        @Html.HiddenFor(model => model.JobImg) 
 
         <div class="form-group">
             @Html.LabelFor(model => model.JobTitle, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -48,7 +48,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CategoryId, "نوع الوظيفة", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.CategoryId, "Job category", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("CategoryId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
@@ -57,14 +57,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="حفظ" class="btn btn-default" id="save"/>
+                <input type="submit" value="Save" class="btn btn-default" id="save"/>
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("العودة الى القائمة", "Index")
+    @Html.ActionLink("Back to list", "Index")
 </div>
 
 @section scripts{ 
@@ -73,38 +73,27 @@
         $("#save").click(function () {
             $("#err-div").fadeOut();
             $("#view-err").text("");
-
-            //Check if the input is empty or not
-             
-            //if ($("#myImage").val() == "") {
-            //    $("#err-div").fadeIn();
-            //    $("#view-err").append("رجاءً قم باختيار صورة للوظيفة");
-            //    return false; //to stop operation 'sending data to server'
-            //}
-                    
+    
             
             if ($("#myImage").val() != "")  {
-                //check if img extension is valid or not
                 var filename = document.getElementById("myImage").value;
 
                 var extensionImg = filename.substr(filename.lastIndexOf('.') + 1);
 
                 var validExtensions = ['jpg', 'png', 'gif', 'bmp', 'jfif'];
 
-                if ($.inArray(extensionImg, validExtensions) == -1) { //that mean image extension not found
+                if ($.inArray(extensionImg, validExtensions) == -1) { 
                     $("#err-div").fadeIn();
-                    $("#view-err").append("رجاءً قم باختيار امتداد صحيح للصورة ");
-                    return false; //to stop operation 'sending data to server'
+                    $("#view-err").append("Please choose a correct image extension");
+                    return false; 
                 }
 
-
-                //check if the image size is valid or not
-                var fileSize = document.getElementById("myImage").files[0].size / 1024 / 1024; //to get size in mg
+                var fileSize = document.getElementById("myImage").files[0].size / 1024 / 1024; 
 
                 if (fileSize > 2) {
                     $("#err-div").fadeIn();
-                    $("#view-err").append("رجاءً قم باختيار صورة حجمها اصغر من 3 ميغا بايت");
-                    return false; //to stop operation 'sending data to server'
+                    $("#view-err").append("Please choose a picture with a smaller size than 3 megabytes");
+                    return false; 
                 }
             }
         });

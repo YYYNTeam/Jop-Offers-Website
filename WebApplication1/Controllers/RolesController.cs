@@ -41,8 +41,7 @@ namespace Jop_Offers_Website.Controllers
         public ActionResult Create(IdentityRole role)
         {
             
-                // TODO: Add insert logic here
-                if (ModelState.IsValid) //check there is no errors
+                if (ModelState.IsValid) 
                 {
                     db.Roles.Add(role);
                     db.SaveChanges();

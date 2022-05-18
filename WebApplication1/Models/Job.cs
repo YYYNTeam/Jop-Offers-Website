@@ -6,26 +6,23 @@ using System.Web;
 using System.Web.Mvc;
 using WebApplication2.Models;
 
-// class for jobs in DB -it has one to many relationship between it and Category-
-//Category have more than job & one job belong to one category
 namespace Jop_Offers_Website.Models
 {
     public class Job
     {
-        public int Id { get; set; } //primary key for DB
+        public int Id { get; set; } 
 
-        [Display(Name ="اسم الوظيفة" )]
+        [Display(Name ="Job name" )]
         public string JobTitle { get; set; }
 
-        [Display(Name ="وصف الوظيفة")]
+        [Display(Name = "Job description")]
         [AllowHtml]
         public string JobContent { get; set; }
 
-        [Display(Name = "صورة الوظيفة")]
+        [Display(Name = "Job image")]
         public string JobImg { get; set; }
 
-        //Forign key for one to many relationship
-        [Display(Name ="نوع الوظيفة")]
+        [Display(Name ="Job category")]
         public int CategoryId { get; set; }
 
         public string UserID { get; set; }

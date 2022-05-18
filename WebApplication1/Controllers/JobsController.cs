@@ -13,7 +13,7 @@ using Microsoft.AspNet.Identity;
 
 namespace Jop_Offers_Website.Controllers
 {
-    [Authorize] // Authorize every one to access it
+    [Authorize]
     public class JobsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -41,7 +41,7 @@ namespace Jop_Offers_Website.Controllers
         }
 
         // GET: Jobs/Create
-        [Authorize(Roles = "Adminstrator, الناشرون")]
+        [Authorize(Roles = "الناشرون")]
         public ActionResult Create()
         {
             ViewBag.CategoryId = new SelectList(db.Categories, "Id", "CategoryName");
@@ -49,18 +49,16 @@ namespace Jop_Offers_Website.Controllers
         }
 
         // POST: Jobs/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Adminstrator, الناشرون")]
+        [Authorize(Roles = "الناشرون")]
         public ActionResult Create(Job job, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
-                string path = Path.Combine(Server.MapPath("~/Uploads"), upload.FileName); //for upload jobs images
-                upload.SaveAs(path); //to store image on server
-                job.JobImg = upload.FileName; //store image on database
+                string path = Path.Combine(Server.MapPath("~/Uploads"), upload.FileName); 
+                upload.SaveAs(path); 
+                job.JobImg = upload.FileName; 
                 job.UserID = User.Identity.GetUserId();
                 db.Jobs.Add(job);
                 db.SaveChanges();
@@ -88,23 +86,20 @@ namespace Jop_Offers_Website.Controllers
         }
 
         // POST: Jobs/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Job job, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
-                //delete old image to save size on server
                 string oldPath = Path.Combine(Server.MapPath("~/Uploads"), job.JobImg);
 
-                if(upload!=null) //chek if user choose image
+                if(upload!=null) 
                 {
                     System.IO.File.Delete(oldPath);
                     string path = Path.Combine(Server.MapPath("~/Uploads"), upload.FileName); //for upload jobs images
-                    upload.SaveAs(path); //to store image on server
-                    job.JobImg = upload.FileName; //store image on database
+                    upload.SaveAs(path);
+                    job.JobImg = upload.FileName; 
 
                 }
 

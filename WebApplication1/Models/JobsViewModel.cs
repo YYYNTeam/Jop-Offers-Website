@@ -8,6 +8,6 @@ namespace something.Models
     public class JobsViewModel
     {
         public string JobTitle { get; set; }
-        public IEnumerable<ApplyForJob> Items { get; set; } //Users who apply for the job
+        public IEnumerable<ApplyForJob> Items { get; set; } 
     }
 }

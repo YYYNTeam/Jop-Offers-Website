@@ -1,18 +1,18 @@
 ﻿@model Jop_Offers_Website.Models.Category
 
 @{
-    ViewBag.Title = "التعديل";
+    ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-<h2>تعديل النوع</h2>
+<h2>Category edit</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>تفاصيل النوع</h4>
+        <h4>Category details</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
@@ -35,12 +35,12 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="حفظ" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("العودة الى القائمة", "Index")
+    @Html.ActionLink("Back to list", "Index")
 </div>

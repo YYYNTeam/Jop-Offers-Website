@@ -10,18 +10,19 @@ using something.Models;
 using System.Data.Entity;
 using System.Net.Mail;
 using System.Net;
+using System.Windows;
+using System.Web.UI;
 
 namespace WebApplication2.Controllers
 {
     public class HomeController : Controller
     {
-        //instance from database
         private ApplicationDbContext db = new ApplicationDbContext();
 
 
         public ActionResult Index()
         {
-            var list = db.Categories.ToList(); //convert DB categories into list
+            var list = db.Categories.ToList(); 
             return View(list);
         }
 
@@ -36,7 +37,6 @@ namespace WebApplication2.Controllers
             return View(job);
         }
 
-        // this will get the form message from the Applier
         [Authorize]
         public ActionResult Apply()
         {
@@ -46,8 +46,8 @@ namespace WebApplication2.Controllers
         [HttpPost]
         public ActionResult Apply(String Message)
         {
-            var UserId = User.Identity.GetUserId();         // get the user Id but he must be logged In
-            var JobId = (int)Session["JobId"]; // in details function
+            var UserId = User.Identity.GetUserId();         
+            var JobId = (int)Session["JobId"];
 
             var check = db.ApplyForJobs.Where(a => a.JobId == JobId && a.UserId == UserId).ToList();  
             if (check.Count < 1)
@@ -61,12 +61,11 @@ namespace WebApplication2.Controllers
 
                 db.ApplyForJobs.Add(job);
                 db.SaveChanges();
-                ViewBag.Result = "تمت الاضافة بنجاح !";
+                ViewBag.Result = "Applied successfully";
             }
             else
             {
-                // error message from action to view.
-                ViewBag.Result = "المعذرة، لقد سبق وتقدمت الي نفس الوظيفة!";
+                ViewBag.Result = "You have already applied for this job!";
             }
 
             return View();
@@ -149,7 +148,6 @@ namespace WebApplication2.Controllers
         [HttpPost]
         public ActionResult Delete(ApplyForJob job)
         {
-                // TODO: Add delete logic here
                 var myJob = db.ApplyForJobs.Find(job.Id);
                 db.ApplyForJobs.Remove(myJob);
                 db.SaveChanges();
@@ -172,26 +170,35 @@ namespace WebApplication2.Controllers
         [HttpPost]
         public ActionResult Contact(ContactModel contact)
         {
-            var mail = new MailMessage();
-            var loginInfo = new NetworkCredential("level.3.cs.is@gmail.com", "ujpjchkomcdrxvpz", "smtp.gmail.com");
-            mail.From = new MailAddress(contact.Email);
-            mail.To.Add(new MailAddress("level.3.cs.is@gmail.com"));
-            mail.Subject = contact.Subject;
-            mail.IsBodyHtml = true;  //عشان أخلي الايميل على شكل Html
-            string body = "اسم المرسل: " + contact.Name + "<br>" +
-                "بريد المرسل: " + contact.Email + "<br>" +
-                "عنوان الرسالة: " + contact.Subject + "<br>" +
-                "نص الرسالة: " + contact.Message + "<br>";
-            mail.Body = body;
-
-            //To send email in .Net
-            var smtpClient = new SmtpClient("smtp.gmail.com", 587); //Port of gmail
-            smtpClient.EnableSsl = true; //الوضع الآمن في عملية تحويل البيانات من الBrowser=>webserver  
-            smtpClient.Credentials = loginInfo;
-            smtpClient.UseDefaultCredentials = false;
-            smtpClient.Send(mail);
+            var fromAddress = "jop.offers.website@gmail.com";
+            var toAddress = "jop.offers.website@gmail.com";
+            const string toPassowrd = "gcplqdhawdbpoucv";
+            string subject = contact.Subject;
+            string body = "Sender Name:" + contact.Name + "\n" +
+                          "Sender Email: " + contact.Email + "\n" +
+                          "Mail Subject: " + contact.Subject + "\n" +
+                          "Message: " + contact.Message + "\n";
+            var smtp = new SmtpClient()
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                Credentials = new NetworkCredential(toAddress, toPassowrd),
+                Timeout = 20000
+            };
+            try
+            {
+                smtp.Send(toAddress, fromAddress, subject, body);
+            }
+            catch (Exception ex)
+            {
+ 
+            }
             return RedirectToAction("Index");
         }
+
+
 
         public ActionResult Search()
         {

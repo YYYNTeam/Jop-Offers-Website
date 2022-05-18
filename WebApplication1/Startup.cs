@@ -18,12 +18,9 @@ namespace WebApplication2
 
         public void CreateDefaultRolesAndUsers()
         {
-            // to manage rules and store in the roleStore to manage groups
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db));
-            // the same to manage users
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
             IdentityRole role = new IdentityRole();
-            // if Admins role not in the db create new 
              if (!roleManager.RoleExists("Adminstrator"))
             {
                 role.Name = "Adminstrator";
@@ -38,8 +35,6 @@ namespace WebApplication2
                     userManager.AddToRole(user.Id, "Adminstrator");
                 }
             }
-             
-
         }
     }
 }

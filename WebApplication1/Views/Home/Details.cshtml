@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-<h2>تفاصيل الوظيفة</h2>
+<h2>Job details</h2>
 
 <div>
     <hr />
@@ -48,6 +48,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("التقدم الى هذه الوظيفة", "Apply", new { id = Model.Id }, new { @class = "btn btn-success" }) |
-    @Html.ActionLink("العودة الي اصفحة الئيسية", "Index", new { @class = "btn btn-default" })
+    @Html.ActionLink("Apply for this job", "Apply", new { id = Model.Id }, new { @class = "btn btn-success" }) |
+    @Html.ActionLink("Back to home page", "Index", new { @class = "btn btn-default" })
 </p>
