@@ -170,13 +170,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202205131302569_EditModel.cs" />
-    <Compile Include="Migrations\202205131302569_EditModel.Designer.cs">
-      <DependentUpon>202205131302569_EditModel.cs</DependentUpon>
+    <Compile Include="Migrations\202205180608554_EditRoles.cs" />
+    <Compile Include="Migrations\202205180608554_EditRoles.Designer.cs">
+      <DependentUpon>202205180608554_EditRoles.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202205131315517_EditModel1.cs" />
-    <Compile Include="Migrations\202205131315517_EditModel1.Designer.cs">
-      <DependentUpon>202205131315517_EditModel1.cs</DependentUpon>
+    <Compile Include="Migrations\202205180614472_EditRoles2.cs" />
+    <Compile Include="Migrations\202205180614472_EditRoles2.Designer.cs">
+      <DependentUpon>202205180614472_EditRoles2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -288,11 +288,11 @@
     <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202205131302569_EditModel.resx">
-      <DependentUpon>202205131302569_EditModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202205180608554_EditRoles.resx">
+      <DependentUpon>202205180608554_EditRoles.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202205131315517_EditModel1.resx">
-      <DependentUpon>202205131315517_EditModel1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202205180614472_EditRoles2.resx">
+      <DependentUpon>202205180614472_EditRoles2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

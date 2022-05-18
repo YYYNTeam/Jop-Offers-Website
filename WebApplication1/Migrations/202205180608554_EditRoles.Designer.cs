@@ -7,13 +7,13 @@ namespace Jop_Offers_Website.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class EditJobModel : IMigrationMetadata
+    public sealed partial class EditRoles : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(EditJobModel));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(EditRoles));
         
         string IMigrationMetadata.Id
         {
-            get { return "202205130653442_EditJobModel"; }
+            get { return "202205180608554_EditRoles"; }
         }
         
         string IMigrationMetadata.Source
