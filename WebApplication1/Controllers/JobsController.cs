@@ -41,7 +41,7 @@ namespace Jop_Offers_Website.Controllers
         }
 
         // GET: Jobs/Create
-        [Authorize(Roles = "الناشرون")]
+        [Authorize(Roles = "Adminstrator, Publisher")]
         public ActionResult Create()
         {
             ViewBag.CategoryId = new SelectList(db.Categories, "Id", "CategoryName");
@@ -51,7 +51,7 @@ namespace Jop_Offers_Website.Controllers
         // POST: Jobs/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "الناشرون")]
+        [Authorize(Roles = "Adminstrator, Publisher")]
         public ActionResult Create(Job job, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)

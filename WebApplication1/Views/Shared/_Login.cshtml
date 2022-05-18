@@ -33,12 +33,12 @@
                                             @CurrentUser.UserName
                                         </strong>
                                     </p>
-                                    @if (CurrentUser.UserType == "الناشرون")
+                                    @if (CurrentUser.UserType == "Publisher")
                                     {
                                         <a href="~/Home/GetJobsByPublisher" class="btn btn-success">Published Jobs</a>
                                         <a href="~/Jobs/Create" class="btn btn-success">Publish a new job</a>
                                     }
-                                    else if(CurrentUser.UserType == "الباحثون")
+                                    else
                                     {
                                         <a href="~/Home/GetJobByUser" class="btn btn-success btn-block">The jobs you applied to</a>
                                     }
